@@ -11,9 +11,11 @@ class DiceViewModel extends ViewModel {
 
     private final DiceLiveData diceResult = new DiceLiveData();
     private LiveSensor sensorLiveData;
+    private int countRoll;
 
     DiceViewModel(@IntRange(from = 1, to = 100) int diceVariant) {
         diceResult.setDiceVariant(diceVariant);
+        countRoll = 0;
     }
 
     public LiveData<SensorEvent> getSensorLiveData(Context context) {
@@ -28,9 +30,14 @@ class DiceViewModel extends ViewModel {
 
     public void rollDice() {
         diceResult.rollDice();
+        countRoll++;
     }
 
     DiceLiveData getDiceLiveData() {
         return diceResult;
+    }
+
+    public int getRollCount(){
+        return countRoll;
     }
 }

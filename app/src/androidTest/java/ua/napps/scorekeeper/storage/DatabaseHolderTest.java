@@ -32,20 +32,22 @@ public class DatabaseHolderTest {
     }
 
     @Test
-public void insertDeleteAndCount() {
-    final Counter counter = new Counter("Counter", "#2196F3",0);
+    public void insertDeleteAndCount() {
+        final Counter counter = new Counter("Counter", "#2196F3", 0);
 
-    assertThat(database.countersDao().count(), Is.is(0));
-            database.countersDao().insert(counter);
-      assertThat(database.countersDao().count(), Is.is(1));
+        assertThat(database.countersDao().count(), Is.is(0));
+        database.countersDao().insert(counter);
+        assertThat(database.countersDao().count(), Is.is(1));
 
-    List<Counter> counters = database.countersDao().loadAllCountersSync();
-    Counter dbCounter = counters.get(0);
-    assertEquals(dbCounter.getName(), "Counter");
+        List<Counter> counters = database.countersDao().loadAllCountersSync();
+        Counter dbCounter = counters.get(0);
+        assertEquals(dbCounter.getName(), "Counter");
 
-    database.countersDao().deleteCounter(dbCounter);
-    assertThat(database.countersDao().count(), Is.is(0));
+        database.countersDao().deleteCounter(dbCounter);
+        assertThat(database.countersDao().count(), Is.is(0));
+    }
 
-}
+
+
 
 }

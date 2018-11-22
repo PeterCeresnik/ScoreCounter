@@ -182,11 +182,7 @@ class CountersViewModel extends AndroidViewModel {
     }
 
     void modifyPosition(Counter counter, int fromPosition, int toPosition) {
-        if (fromPosition == toPosition) {
-            return;
-        }
-
-        if (toPosition == counter.getPosition()) {
+        if (fromPosition == toPosition || toPosition == counter.getPosition()) {
             return;
         }
 

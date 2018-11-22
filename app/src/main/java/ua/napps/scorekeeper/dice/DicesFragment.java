@@ -75,7 +75,7 @@ public class DicesFragment extends Fragment {
         previousRollTextViewLabel = contentView.findViewById(R.id.tv_previous_roll_label);
         emptyStateGroup = contentView.findViewById(R.id.empty_state_group);
         diceTextView = contentView.findViewById(R.id.dice);
-        root = contentView.findViewById(R.id.container);
+        root = contentView.findViewById(R.id.container_dices);
         root.setOnClickListener(v -> {
             viewModel.rollDice();
             Bundle params = new Bundle();
@@ -173,6 +173,18 @@ public class DicesFragment extends Fragment {
                 diceTextView.setText("" + currentRoll);
             }
         });
+    }
+
+    public DiceViewModel getViewModel(){
+        return viewModel;
+    }
+
+    public int getCurrentRoll() {
+        return currentRoll;
+    }
+
+    public int getPreviousRoll(){
+        return previousRoll;
     }
 
     private void useSensorLiveData() {

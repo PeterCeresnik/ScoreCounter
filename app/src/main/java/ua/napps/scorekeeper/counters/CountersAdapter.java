@@ -145,6 +145,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> im
         if (lastMovedCounter == null) {
             lastMovedCounter = counter;
         }
+        //dragViewListener.afterDrag(lastMovedCounter, fromPosition, toPosition);
     }
 
     @Override
