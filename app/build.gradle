@@ -57,14 +57,14 @@ android {
         javaMaxHeapSize "4g"
     }
 
-//    signingConfigs {
-//        release {
-//            storeFile new File(STORE_FILE)
-//            storePassword STORE_PASSWORD
-//            keyAlias KEY_ALIAS
-//            keyPassword KEY_PASSWORD
-//        }
-//    }
+    signingConfigs {
+        release {
+            storeFile new File(STORE_FILE)
+            storePassword STORE_PASSWORD
+            keyAlias KEY_ALIAS
+            keyPassword KEY_PASSWORD
+        }
+    }
 
     buildTypes {
         debug {
@@ -72,14 +72,14 @@ android {
             testCoverageEnabled true
             useProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            //signingConfig signingConfigs.release
+            signingConfig signingConfigs.release
         }
 
         release {
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            //signingConfig signingConfigs.release
+            signingConfig signingConfigs.release
             manifestPlaceholders += [crashlyticsEnabled: true]
         }
     }
