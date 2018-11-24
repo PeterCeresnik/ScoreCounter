@@ -33,6 +33,9 @@ jobs:
         - image: circleci/android:api-25-alpha  # gcloud is baked into this image
       steps:
         - run:
+            name: Chmod permissions
+            command: sudo chmod +x ./gradlew
+        - run:
             name: Build debug APK and release APK
             command: |
               ./gradlew :app:assembleDebug
