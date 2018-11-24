@@ -7,8 +7,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import androidx.room.Room;
-import androidx.test.InstrumentationRegistry;
-import androidx.test.runner.AndroidJUnit4;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.platform.app.InstrumentationRegistry;
 import ua.napps.scorekeeper.storage.DatabaseHolder;
 import org.junit.runner.RunWith;
 
@@ -24,7 +24,7 @@ public class CountersRepositoryTest {
 
     @Before
     public void setUp() throws Exception {
-        database = Room.inMemoryDatabaseBuilder(InstrumentationRegistry.getTargetContext(), DatabaseHolder.class).build();
+        database = Room.inMemoryDatabaseBuilder(InstrumentationRegistry.getInstrumentation().getTargetContext(), DatabaseHolder.class).build();
         countersDao = database.countersDao();
         counter1 = new Counter("counter1", "black", 0);
         counter1.setStep(5);

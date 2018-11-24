@@ -186,7 +186,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                         }
                     } else {
                         if (((GridLayoutManager) recyclerView.getLayoutManager()).getSpanCount() != 1) {
-                            recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
+                            recyclerView.setLayoutManager(new GridLayoutManager(context, 1));
                         }
                     }
                 }
@@ -459,5 +459,9 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     @Override
     public void afterDrag(Counter counter, int fromPosition, int toPosition) {
         viewModel.modifyPosition(counter, fromPosition, toPosition);
+    }
+
+    public CountersAdapter getCountersAdapter(){
+        return countersAdapter;
     }
 }

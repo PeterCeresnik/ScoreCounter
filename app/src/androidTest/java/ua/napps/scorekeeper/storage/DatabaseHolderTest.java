@@ -1,7 +1,5 @@
 package ua.napps.scorekeeper.storage;
 import androidx.room.Room;
-import androidx.test.InstrumentationRegistry;
-import androidx.test.runner.AndroidJUnit4;
 
 import org.hamcrest.core.Is;
 import org.junit.After;
@@ -11,6 +9,8 @@ import org.junit.runner.RunWith;
 
 import java.util.List;
 
+import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.platform.app.InstrumentationRegistry;
 import ua.napps.scorekeeper.counters.Counter;
 
 import static junit.framework.Assert.assertEquals;
@@ -23,7 +23,7 @@ public class DatabaseHolderTest {
 
     @Before
     public void setUp() {
-         database = Room.inMemoryDatabaseBuilder(InstrumentationRegistry.getTargetContext(), DatabaseHolder.class).build();
+         database = Room.inMemoryDatabaseBuilder(InstrumentationRegistry.getInstrumentation().getTargetContext(), DatabaseHolder.class).build();
     }
 
     @After
@@ -46,8 +46,4 @@ public class DatabaseHolderTest {
         database.countersDao().deleteCounter(dbCounter);
         assertThat(database.countersDao().count(), Is.is(0));
     }
-
-
-
-
 }

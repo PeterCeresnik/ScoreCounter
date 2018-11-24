@@ -16,10 +16,9 @@ class CountersRepository {
         this.countersDao = countersDao;
     }
 
-    public Completable createCounter(String name, String color, int position) {
+    public Completable createCounter(final Counter counter) {
 
         return Completable.fromAction(() -> {
-            final Counter counter = new Counter(name, color,position);
             countersDao.insert(counter);
         });
     }

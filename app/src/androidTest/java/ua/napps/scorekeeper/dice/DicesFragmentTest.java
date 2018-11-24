@@ -10,9 +10,9 @@ import org.junit.runner.RunWith;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.LargeTest;
 import androidx.test.rule.ActivityTestRule;
-import androidx.test.runner.AndroidJUnit4;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.app.MainActivity;
 import ua.napps.scorekeeper.settings.LocalSettings;
@@ -48,7 +48,7 @@ public class DicesFragmentTest {
     }
 
     @Test
-    public void testDiceRoll(){
+    public void checkDiceThrowing(){
         DiceViewModel viewModel =  ((DicesFragment)fragment).getViewModel();
         int beforeClickRollCount = viewModel.getRollCount();
         int currentRollBefore = ((DicesFragment)fragment).getCurrentRoll();
@@ -61,7 +61,6 @@ public class DicesFragmentTest {
         int afterClickRollCount = viewModel.getRollCount();
         assertThat(afterClickRollCount, Is.is(beforeClickRollCount+1));
         int currentRollAfter = ((DicesFragment)fragment).getCurrentRoll();
-        int previousRollAfter = ((DicesFragment)fragment).getPreviousRoll();
         assertThat(currentRollAfter, lessThanOrEqualTo(LocalSettings.getDiceMaxSide()));
     }
 

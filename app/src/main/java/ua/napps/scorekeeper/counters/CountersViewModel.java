@@ -47,7 +47,8 @@ class CountersViewModel extends AndroidViewModel {
     }
 
     void addCounter() {
-        repository.createCounter(String.valueOf(nextCounterColor + 1), getNextColor(),listSize)
+        final Counter counter = new Counter(String.valueOf(nextCounterColor + 1), getNextColor(),listSize);
+        repository.createCounter(counter)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new CompletableObserver() {
@@ -67,6 +68,31 @@ class CountersViewModel extends AndroidViewModel {
                 });
         nextCounterColor++;
     }
+
+    Counter addCounterAndReturn() {
+        final Counter counter = new Counter(String.valueOf(nextCounterColor + 1), getNextColor(),listSize);
+        repository.createCounter(counter)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new CompletableObserver() {
+                    @Override
+                    public void onComplete() {
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Timber.e(e, "create counter");
+                    }
+
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+                });
+        nextCounterColor++;
+        return counter;
+    }
+
 
     void decreaseCounter(Counter counter) {
         decreaseCounter(counter, -counter.getStep());
