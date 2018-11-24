@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "23016470378",
+    "firebase_url": "https://score-counter-5541c.firebaseio.com",
+    "project_id": "score-counter-5541c",
+    "storage_bucket": "score-counter-5541c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:23016470378:android:5e34dfd8fc625473",
+        "android_client_info": {
+          "package_name": "ua.napps.scorekeeper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "23016470378-tmef9j5t2gh6gl520qlptsfb7vo1rivn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_37pD8aAi4vKeNw5YvwRHquJHO-M-GwU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
