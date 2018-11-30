@@ -75,7 +75,7 @@ jobs:
             name: Install gsutil dependency and copy test results data
             command: |
               sudo pip install -U crcmod
-              sudo gsutil -m cp -r -U "`gsutil ls gs://score-counter-5541c.appspot.com | tail -1`*" ${CIRCLE_ARTIFACTS}/
+              sudo gsutil -m cp -r -U "`gsutil ls gs://test-lab-vm19s8xyqd4p2-n5n51hhbjmqti | tail -1`*" ${CIRCLE_ARTIFACTS}/
               #sudo gsutil -m cp -r -U `sudo gsutil ls gs://score-counter-5541c.appspot.com | tail -1` ${CIRCLE_ARTIFACTS}/ | true
 workflows:
   version: 2
