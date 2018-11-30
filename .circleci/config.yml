@@ -11,10 +11,10 @@ references:
         - app/build/test-results
 
   persist_firebase_workspace: &persist_firebase_workspace
-  persist_to_workspace:
-    root: ~/code
-    paths:
-      - firebase
+    persist_to_workspace:
+      root: ~/code
+      paths:
+        - firebase
 
 jobs:
   build:
