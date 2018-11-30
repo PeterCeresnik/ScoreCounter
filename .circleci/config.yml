@@ -78,14 +78,14 @@ jobs:
               sudo gsutil -m cp -r -U "`gsutil ls gs://test-lab-vm19s8xyqd4p2-n5n51hhbjmqti | tail -1`*" ${CIRCLE_ARTIFACTS}/
 
 
-   coverage:
-        working_directory: ~/code
-        docker:
-          - image: circleci/android:api-25-alpha  # gcloud is baked into this image
-        environment:
-          JVM_OPTS: -Xmx3200m
-        steps:
-          - checkout
+  coverage:
+    working_directory: ~/code
+    docker:
+      - image: circleci/android:api-25-alpha  # gcloud is baked into this image
+    environment:
+      JVM_OPTS: -Xmx3200m
+    steps:
+      - checkout
 
 workflows:
   version: 2
