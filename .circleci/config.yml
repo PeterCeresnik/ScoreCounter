@@ -1,4 +1,14 @@
 version: 2
+references:
+  persist_debug_workspace: &persist_debug_workspace
+    persist_to_workspace:
+      root: *workspace
+      paths:
+        - app/build/intermediates
+        - app/build/outputs/androidTest-results
+        - app/build/outputs/apk
+        - app/build/outputs/code-coverage
+        - app/build/test-results
 
 jobs:
   build:
@@ -26,6 +36,7 @@ jobs:
           command: |
               ./gradlew :app:assembleDebug
               ./gradlew :app:assembleDebugAndroidTest
+      - *persist_debug_workspace
       - store_artifacts:
               path: apk/build/outputs/apk/
               destination: /apk/
@@ -59,4 +70,3 @@ workflows:
       - test:
           requires:
             - build
-          
