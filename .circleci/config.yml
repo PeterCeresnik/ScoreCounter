@@ -39,7 +39,7 @@ jobs:
             command: echo 'export GCLOUD_SERVICE_KEY="$GCLOUD_SERVICE_KEY"' >> $BASH_ENV
         - run:
             name: Decode Google Cloud credentials
-            command: echo $GCLOUD_SERVICE_KEY | base64 -di > ${HOME}/client-secret.json
+            command: echo $GCLOUD_SERVICE_KEY | base64 -di > ${HOME}/gcloud-service-key.json
         - run:
             name: Authorize gcloud and set config defaults
             command: |
