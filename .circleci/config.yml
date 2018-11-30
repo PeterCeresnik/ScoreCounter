@@ -117,7 +117,7 @@ jobs:
       steps:
         - checkout
         - *restore_cache
-         run:
+        - run:
                  name: Chmod permissions
                  command: sudo chmod +x ./gradlew
         - run:
