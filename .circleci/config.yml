@@ -30,6 +30,7 @@ jobs:
               path: apk/build/outputs/apk/
               destination: /apk/
 
+
   test:
       docker:
         - image: circleci/android:api-25-alpha  # gcloud is baked into this image
