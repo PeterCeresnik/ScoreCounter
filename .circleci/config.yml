@@ -3,6 +3,7 @@ version: 2
 ## Docker image configurations
 
  ## Cache
+references:
 
   cache_key: &cache_key
     key: cache-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
