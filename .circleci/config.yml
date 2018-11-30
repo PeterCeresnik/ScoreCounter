@@ -80,10 +80,10 @@ jobs:
         - run:
           name: Download instrumented test results from Firebase Test Lab
           command: gsutil -m cp -r -U "`gsutil ls gs://test-lab-vm19s8xyqd4p2-n5n51hhbjmqti | tail -1`*" /root/workspace/firebase/
-              - *persist_firebase_workspace
-              - store_artifacts:
-                  path: firebase/
-                  destination: /firebase/
+        - *persist_firebase_workspace
+        - store_artifacts:
+          path: firebase/
+          destination: /firebase/
   coverage:
     working_directory: ~/code
     docker:
