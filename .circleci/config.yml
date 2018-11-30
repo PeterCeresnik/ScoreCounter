@@ -2,7 +2,6 @@ version: 2
 references:
   persist_debug_workspace: &persist_debug_workspace
     persist_to_workspace:
-      root: *workspace
       paths:
         - app/build/intermediates
         - app/build/outputs/androidTest-results
