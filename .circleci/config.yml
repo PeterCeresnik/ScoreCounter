@@ -1,15 +1,4 @@
 version: 2
-references:
-# Google Cloud Service
-
-  export_gcloud_key: &export_gcloud_key
-    run:
-      name: Export Google Cloud Service key environment variable
-      command: echo 'export GCLOUD_SERVICE_KEY="$GCLOUD_SERVICE_KEY"' >> $BASH_ENV
-  decode_gcloud_key: &decode_gcloud_key
-    run:
-      name: Decode Google Cloud credentials
-      command: echo $GCLOUD_SERVICE_KEY | base64 -di > ${HOME}/client-secret.json
 
 jobs:
   build:
@@ -45,8 +34,12 @@ jobs:
       docker:
         - image: circleci/android:api-25-alpha  # gcloud is baked into this image
       steps:
-          - *export_gcloud_key
-          - *decode_gcloud_key
+        - run:
+            name: Export Google Cloud Service key environment variable
+            command: echo 'export GCLOUD_SERVICE_KEY="$GCLOUD_SERVICE_KEY"' >> $BASH_ENV
+        - run:
+            name: Decode Google Cloud credentials
+            command: echo $GCLOUD_SERVICE_KEY | base64 -di > ${HOME}/client-secret.json
         - run:
             name: Authorize gcloud and set config defaults
             command: |
