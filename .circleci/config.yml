@@ -78,7 +78,7 @@ jobs:
               sudo gsutil -m cp -r -U "`gsutil ls gs://test-lab-vm19s8xyqd4p2-n5n51hhbjmqti | tail -1`*" ${CIRCLE_ARTIFACTS}/
 
 
-   report_coverage:
+   coverage:
         working_directory: ~/code
         docker:
           - image: circleci/android:api-25-alpha  # gcloud is baked into this image
@@ -95,6 +95,6 @@ workflows:
       - test:
           requires:
             - build
-      - report_coverage:
+      - coverage:
           requires:
             - test
