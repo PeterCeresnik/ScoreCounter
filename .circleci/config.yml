@@ -79,7 +79,7 @@ jobs:
             command: sudo gcloud firebase test android run --type instrumentation --app /home/circleci/code/app/build/outputs/apk/debug/app-debug.apk --test /home/circleci/code/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk --device model=sailfish,version=25,locale=en_US,orientation=portrait --environment-variables coverage=true,coverageFile=/sdcard/tmp/code-coverage/connected/coverage.ec --directories-to-pull=/sdcard/tmp --timeout 5m
         - run:
             name: Download instrumented test results from Firebase Test Lab
-            command: gsutil -m cp -r -U "`gsutil ls gs://test-lab-vm19s8xyqd4p2-n5n51hhbjmqti | tail -1`*" /root/workspace/firebase/
+            command: gsutil -m cp -r -U "`gsutil ls gs:/test-lab-vm19s8xyqd4p2-n5n51hhbjmqti | tail -1`*" /root/workspace/firebase/
         - *persist_firebase_workspace
         - store_artifacts:
             path: firebase/
@@ -100,7 +100,7 @@ jobs:
         name: Download dependencies
         command: ./gradlew androidDependencies
       - attach_workspace:
-        at: ~/code 
+        at: ~/code
       - run:
         name: Move Firebase coverage report
         command: mkdir -p app/build/outputs/code-coverage/connected && cp firebase/sailfish-25-en_US-portrait/artifacts/coverage.ec app/build/outputs/code-coverage/connected/coverage.ec
