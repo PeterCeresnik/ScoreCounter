@@ -82,8 +82,8 @@ jobs:
           - checkout
           #- *restore_cache
           - run:
-                   name: Chmod permissions
-                   command: sudo chmod +x ./gradlew
+              name: Chmod permissions
+              command: sudo chmod +x ./gradlew
           - run:
               name: Download dependencies
               command: ./gradlew androidDependencies
