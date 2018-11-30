@@ -83,7 +83,7 @@ public class CountersUsingViewModelTest {
         ((LifecycleRegistry) lifecycle).handleLifecycleEvent(Lifecycle.Event.ON_RESUME);
         viewModel.addCounter();
         viewModel.removeAll();
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         viewModel.getCounters().observe(lifecycleOwnerMock, counters -> {
             assertThat(counters.size(),Is.is(0));
         });
