@@ -46,14 +46,12 @@ jobs:
         - run:
             name: Test with Firebase Test Lab
             command: >
-              sudo gcloud firebase test android run
-                --type instrumentation
-                --app app/build/outputs/apk/debug/app-debug.apk
-                --test app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
-                --results-bucket cloud-test-${GOOGLE_PROJECT_ID}
-                --device model=sailfish,version=25,locale=en_US,orientation=portrait
-                --directories-to-pull=/sdcard/tmp
-                --timeout 20m
+            sudo gcloud firebase test android run \
+              --type robo \
+              --app app/build/outputs/apk/debug/app-debug.apk \
+              --test app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk \
+              --device model=sailfish,version=25,locale=en_US,orientation=portrait \
+              --timeout 5m
         - run:
             name: Install gsutil dependency and copy test results data
             command: |
