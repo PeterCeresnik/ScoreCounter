@@ -38,7 +38,7 @@ jobs:
               ./gradlew :app:assembleDebugAndroidTest
       - *persist_debug_workspace
       - store_artifacts:
-              path: apk/build/outputs/apk/
+              path: app/build/outputs/apk/
               destination: /apk/
 
 
