@@ -81,8 +81,6 @@ public class CountersUsingViewModelTest {
         Lifecycle lifecycle = new LifecycleRegistry(lifecycleOwnerMock);
         Mockito.when(lifecycleOwnerMock.getLifecycle()).thenReturn(lifecycle);
         ((LifecycleRegistry) lifecycle).handleLifecycleEvent(Lifecycle.Event.ON_RESUME);
-        //viewModel.addCounter();
-        //Thread.sleep(2000);
         viewModel.removeAll();
         Thread.sleep(2000);
         viewModel.getCounters().observe(lifecycleOwnerMock, counters -> {
