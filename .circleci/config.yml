@@ -84,6 +84,7 @@ jobs:
         - store_artifacts:
             path: firebase/
             destination: /firebase/
+            
   coverage:
     working_directory: ~/code
     docker:
