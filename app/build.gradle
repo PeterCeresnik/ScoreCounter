@@ -15,12 +15,6 @@ tasks.withType(Test) {
     jacoco.includeNoLocationClasses = true
 }
 
-test {
-    jacoco {
-        destinationFile = file("$buildDir/coverage-results/jacoco.exec")
-    }
-}
-
 task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest', 'createDebugCoverageReport']) {
 
     reports {
