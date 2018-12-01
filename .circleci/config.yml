@@ -83,7 +83,7 @@ jobs:
         - run:
             name: Download instrumented test results from Firebase Test Lab
             #command: gsutil -m cp -r -U "gsutil ls gs://test-lab-vm19s8xyqd4p2-n5n51hhbjmqti | tail -n1" /home/circleci/code/firebase/
-            command: gsutil ls gs://test-lab-vm19s8xyqd4p2-n5n51hhbjmqti | tail -n1
+            command: gsutil ls gs://test-lab-vm19s8xyqd4p2-n5n51hhbjmqti | tail -n1 
         - *persist_firebase_workspace
         - store_artifacts:
             path: firebase/
