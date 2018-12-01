@@ -76,7 +76,7 @@ jobs:
               sudo gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
         - run:
             name: Test with Firebase Test Lab
-            command: sudo gcloud firebase test android run --type instrumentation --app /home/circleci/code/app/build/outputs/apk/debug/app-debug.apk --test /home/circleci/code/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk --device model=sailfish,version=25,locale=en_US,orientation=portrait --environment-variables coverage=true,coverageFilePath=/sdcard/tmp/code-coverage/connected/coverage.ec --directories-to-pull=/sdcard/tmp --timeout 5m
+            command: sudo gcloud firebase test android run --type instrumentation --app /home/circleci/code/app/build/outputs/apk/debug/app-debug.apk --test /home/circleci/code/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk --device model=sailfish,version=25,locale=en_US,orientation=portrait --environment-variables coverage=true,coverageFilePath=/sdcard/coverage.ec --directories-to-pull=/sdcard --timeout 5m
         - run:
             name: Create directory to store test results
             command: mkdir /home/circleci/code/firebase
